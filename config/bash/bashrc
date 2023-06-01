@@ -1,0 +1,37 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+unset rc
+
+
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+# another
+export PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin/:$HOME/.local/scripts:$HOME/development/flutter/bin
+export GOPATH=$HOME/go
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export EDITOR="nvim"
+
+########################################
+alias gl="git clone"
+alias v="nvim"
+alias ll="ls -al"
+
+
